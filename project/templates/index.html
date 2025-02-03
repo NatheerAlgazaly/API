@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام تنبؤ وتوصيات الألعاب</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 نظام تنبؤ وتوصيات الألعاب 🎮</h1>
+            <nav>
+                <button id="btnRating">تنبؤ بالتقييمات</button>
+                <button id="btnPopularity">تنبؤ بالشعبية</button>
+                <button id="btnRecommendation">التوصيات</button>
+            </nav>
+        </header>
+
+        <!-- نموذج التنبؤ بالتقييمات -->
+        <div id="ratingSection" class="section">
+            <h2>تنبؤ بنسبة التقييمات</h2>
+            <form id="ratingForm">
+                <div class="input-group">
+                    <label for="total_reviews_rating">إجمالي التقييمات:</label>
+                    <input type="number" step="any" id="total_reviews_rating" name="total_reviews" required>
+                </div>
+                <div class="input-group">
+                    <label for="total_positive_rating">عدد التقييمات الإيجابية:</label>
+                    <input type="number" step="any" id="total_positive_rating" name="total_positive" required>
+                </div>
+                <div class="input-group">
+                    <label for="total_negative_rating">عدد التقييمات السلبية:</label>
+                    <input type="number" step="any" id="total_negative_rating" name="total_negative" required>
+                </div>
+                <div class="input-group">
+                    <label for="n_achievements_rating">عدد الإنجازات:</label>
+                    <input type="number" step="any" id="n_achievements_rating" name="n_achievements" required>
+                </div>
+                <div class="input-group">
+                    <label for="required_age_rating">العمر المطلوب:</label>
+                    <input type="number" step="any" id="required_age_rating" name="required_age" required>
+                </div>
+                <button type="submit">تنبؤ بنسبة التقييمات</button>
+            </form>
+            <div id="ratingResult" class="results"></div>
+        </div>
+
+        <!-- نموذج التنبؤ بالشعبية -->
+        <div id="popularitySection" class="section" style="display: none;">
+            <h2>تنبؤ بشعبية اللعبة</h2>
+            <form id="popularityForm">
+                <div class="input-group">
+                    <label for="total_reviews_popularity">إجمالي التقييمات:</label>
+                    <input type="number" step="any" id="total_reviews_popularity" name="total_reviews" required>
+                </div>
+                <div class="input-group">
+                    <label for="total_positive_popularity">عدد التقييمات الإيجابية:</label>
+                    <input type="number" step="any" id="total_positive_popularity" name="total_positive" required>
+                </div>
+                <div class="input-group">
+                    <label for="total_negative_popularity">عدد التقييمات السلبية:</label>
+                    <input type="number" step="any" id="total_negative_popularity" name="total_negative" required>
+                </div>
+                <div class="input-group">
+                    <label for="n_achievements_popularity">عدد الإنجازات:</label>
+                    <input type="number" step="any" id="n_achievements_popularity" name="n_achievements" required>
+                </div>
+                <div class="input-group">
+                    <label for="release_date_popularity">تاريخ الإصدار:</label>
+                    <input type="date" id="release_date_popularity" name="release_date" required>
+                </div>
+                <button type="submit">تنبؤ بشعبية اللعبة</button>
+            </form>
+            <div id="popularityResult" class="results"></div>
+        </div>
+
+        <!-- نموذج التوصيات -->
+        <div id="recommendationSection" class="section" style="display: none;">
+            <h2>التوصيات بناءً على الأنواع</h2>
+            <form id="recommendationForm">
+                <div class="input-group">
+                    <label for="total_reviews_recommendation">إجمالي التقييمات:</label>
+                    <input type="number" step="any" id="total_reviews_recommendation" name="total_reviews" required>
+                </div>
+                <div class="input-group">
+                    <label for="total_positive_recommendation">عدد التقييمات الإيجابية:</label>
+                    <input type="number" step="any" id="total_positive_recommendation" name="total_positive" required>
+                </div>
+                <div class="input-group">
+                    <label for="total_negative_recommendation">عدد التقييمات السلبية:</label>
+                    <input type="number" step="any" id="total_negative_recommendation" name="total_negative" required>
+                </div>
+                <div class="input-group">
+                    <label for="n_achievements_recommendation">عدد الإنجازات:</label>
+                    <input type="number" step="any" id="n_achievements_recommendation" name="n_achievements" required>
+                </div>
+                <div class="input-group">
+                    <label for="genres_recommendation">الأصناف (مفصولة بفواصل):</label>
+                    <input type="text" id="genres_recommendation" name="genres" placeholder="أكشن,مغامرة,RPG" required>
+                </div>
+                <button type="submit">التوصيات</button>
+            </form>
+            <div id="recommendationResult" class="results"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
